@@ -1,7 +1,12 @@
 contract('Greeter', function(accounts) {
-  it("should assert true", function(done) {
-    var greeter = Greeter.at(Greeter.deployed_address);
-    assert.isTrue(true);
-    done();
-  });
+	var expectedGreeting = 'Well Hello There!';
+
+	it('greets the sender with a welcome message', function(done) {
+		//var Contract = Greeter.deployed();
+		var greeter = Greeter.deployed();
+
+		greeter.greet.call().then(function(greeting) {
+			assert.equal(expectedGreeting, greeting);
+		}).then(done).catch(done);
+	});
 });
