@@ -1,12 +1,10 @@
 contract('Greeter', function(accounts) {
-	var expectedGreeting = 'Well Hello There!';
+	var message = 'Well Hello There!';
 
 	it('greets the sender with a welcome message', function(done) {
-		//var Contract = Greeter.deployed();
-		var greeter = Greeter.deployed();
-
-		greeter.greet.call().then(function(greeting) {
-			assert.equal(expectedGreeting, greeting);
-		}).then(done).catch(done);
+		Greeter.new(message, {from: accounts[0]}).
+			then((contract) => { return contract.greet() }).
+			then((greeting) => { assert.equal(message, greeting) }).
+			then(done).catch(done);
 	});
 });

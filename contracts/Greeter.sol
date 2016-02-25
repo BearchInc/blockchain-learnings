@@ -6,9 +6,13 @@ contract Mortal {
 }
 
 contract Greeter is Mortal {
-	function Greeter() public {}
+	string msg;
+
+	function Greeter(string _msg) public {
+		msg = _msg;
+	}
 
 	function greet() constant returns (string) {
-		return 'Well Hello There!';
+		return msg;
 	}
 }
