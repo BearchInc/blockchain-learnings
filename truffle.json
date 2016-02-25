@@ -10,8 +10,8 @@
     "images/": "images/"
   },
   "deploy": [
-    "MetaCoin",
-    "Greeter"
+    "Thrift",
+    "Product"
   ],
   "rpc": {
     "host": "localhost",
